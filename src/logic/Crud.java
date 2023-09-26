@@ -38,7 +38,7 @@ public class Crud {
         }
         number = Integer.parseInt((String) list.get(0));
         haircolor = list.get(3).toString();
-       // if(key=true){
+        age =  Integer.parseInt((String) list.get(2));
 
 
         if(number<=0){
@@ -59,6 +59,9 @@ public class Crud {
                     list.clear();
                     System.out.println("Цвет может быть: Black " + "Blonde " + "Platinum-blonde " +
                             "Strawberry-blonde " + "Red " + "Brown");break;
+                }else if(age > 99 | age<=0){
+                    list.clear();
+                    System.out.println("Некорректный возраст");break;
                 }else key=false;
             }
         }
