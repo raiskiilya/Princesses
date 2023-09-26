@@ -39,31 +39,30 @@ public class Crud {
         number = Integer.parseInt((String) list.get(0));
         haircolor = list.get(3).toString();
        // if(key=true){
-            for(Princess peoples: people){
-            if(number == peoples.getNumber()){
-                key=true;
-                list.clear();
-                System.out.println("Пользователь с таким именем уже существует");break;
-            }else key=false;
-       // }
-        }
+
+
         if(number<=0){
-            key=true;
             list.clear();
             System.out.println("Номер принцессы должен быть больше 0");
-        }else key = false;
-        if(!haircolor.equals("Black") &&
-                !haircolor.equals("Brown") &&
-                !haircolor.equals("Blonde") &&
-                !haircolor.equals("Platinum-blonde") &&
-                !haircolor.equals("Strawberry-blonde") &&
-                !haircolor.equals("Red")
-        ){
-            list.clear();
-            System.out.println("Цвет может быть: Black " + "Blonde " + "Platinum-blonde " +
-                    "Strawberry-blonde " + "Red " + "Brown");
-        }else key = false;
-       // else key=false;
+        }else {
+            for(Princess peoples: people){
+                if(number == peoples.getNumber()){
+                    list.clear();
+                    System.out.println("Пользователь с таким именем уже существует");break;
+                } else if(!haircolor.equals("Black") &&
+                        !haircolor.equals("Brown") &&
+                        !haircolor.equals("Blonde") &&
+                        !haircolor.equals("Platinum-blonde") &&
+                        !haircolor.equals("Strawberry-blonde") &&
+                        !haircolor.equals("Red")
+                ){
+                    list.clear();
+                    System.out.println("Цвет может быть: Black " + "Blonde " + "Platinum-blonde " +
+                            "Strawberry-blonde " + "Red " + "Brown");break;
+                }else key=false;
+            }
+        }
+
         }
         number = Integer.parseInt((String) list.get(0));
         name = list.get(1).toString();
