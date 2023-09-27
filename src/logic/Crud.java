@@ -45,8 +45,10 @@ public class Crud {
             list.clear();
             System.out.println("Номер принцессы должен быть больше 0");
         }else {
+
             for(Princess peoples: people){
                 if(number == peoples.getNumber()){
+                    key=true;
                     list.clear();
                     System.out.println("Пользователь с таким именем уже существует");break;
                 } else if(!haircolor.equals("Black") &&
