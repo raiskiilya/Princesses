@@ -22,7 +22,7 @@ public class Crud implements DataChecking{
         Scanner scan = new Scanner(System.in);
         ArrayList list = new ArrayList();
         int number=0;
-        String name;
+        String name="";
         int age=0;
         String haircolor="";
         String eyecolor;
@@ -31,19 +31,29 @@ public class Crud implements DataChecking{
         while (key){
         System.out.println("Для добавления принцессы введите комманду, например '5 Belle 17 Brown Hazel':");
         String command = scan.nextLine();
-        list=dataCheking(people, command, number, haircolor, age, key);
-            System.out.println(list.toString());
+        list=dataCheking(people, command, number, haircolor, age, key, name);
             if(list.isEmpty()!=true){
                 key=false;
             }
         }
-        number = Integer.parseInt((String) list.get(0));
-        name = list.get(1).toString();
-        age = Integer.parseInt((String) list.get(2));
-        haircolor = list.get(3).toString();
-        eyecolor = list.get(4).toString();
-        people.add(new Princess(number, name, age, haircolor, eyecolor));
-        System.out.println("Принцесса " + "'" + name + "'" + " была добавлена");
+        System.out.println("Размер коллекции "+list.size());
+        if(list.size() == 5){
+            number = Integer.parseInt((String) list.get(0));
+            name = list.get(1).toString();
+            age = Integer.parseInt((String) list.get(2));
+            haircolor = list.get(3).toString();
+            eyecolor = list.get(4).toString();
+            people.add(new Princess(number, name, age, haircolor, eyecolor));
+            System.out.println("Принцесса " + "'" + name + "'" + " была добавлена");
+        }else {
+            number = Integer.parseInt((String) list.get(0));
+            name = list.get(1).toString()+" "+list.get(2).toString();
+            age = Integer.parseInt((String) list.get(3));
+            haircolor = list.get(4).toString();
+            eyecolor = list.get(5).toString();
+            people.add(new Princess(number, name, age, haircolor, eyecolor));
+            System.out.println("Принцесса " + "'" + name + "'" + " была добавлена");
+        }
 
     }
 }
