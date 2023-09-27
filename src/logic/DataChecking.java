@@ -7,8 +7,9 @@ import java.util.LinkedHashSet;
 
 public interface DataChecking {
       default ArrayList dataCheking(LinkedHashSet<Princess> people, String command,
-                                    int number, String haircolor, int age, boolean key, String name){
-         ArrayList list = new ArrayList();
+                                    int number, String haircolor, int age,
+                                    boolean key, String name, String eyecolor){
+          ArrayList list = new ArrayList();
           String[] words = command.split(" ");
           for(String word : words){
               list.add(word);
@@ -18,12 +19,14 @@ public interface DataChecking {
               name = list.get(1).toString();
               age =  Integer.parseInt((String) list.get(2));
               haircolor = list.get(3).toString();
+              eyecolor = list.get(4).toString();
           }
           catch(Exception ex){
               number = Integer.parseInt((String) list.get(0));
               name = list.get(1).toString()+" "+list.get(2).toString();
               age =  Integer.parseInt((String) list.get(3));
               haircolor = list.get(4).toString();
+              eyecolor = list.get(5).toString();
 
           }
 
@@ -50,6 +53,15 @@ public interface DataChecking {
                   }else if(age > 99 | age<=0){
                       list.clear();
                       System.out.println("Некорректный возраст");break;
+                      //продолжить..
+                  }else if(!eyecolor.equals("") &&
+                          !eyecolor.equals("") &&
+                          !eyecolor.equals("") &&
+                          !eyecolor.equals("Platinum-blonde") &&
+                          !eyecolor.equals("Strawberry-blonde") &&
+                          !eyecolor.equals("Red")
+                  ){
+                      System.out.println("Некорректный цвет глаз");
                   }
               }
           }

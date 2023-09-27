@@ -25,13 +25,13 @@ public class Crud implements DataChecking{
         String name="";
         int age=0;
         String haircolor="";
-        String eyecolor;
+        String eyecolor="";
         boolean key = true;
 
         while (key){
         System.out.println("Для добавления принцессы введите комманду, например '5 Belle 17 Brown Hazel':");
         String command = scan.nextLine();
-        list=dataCheking(people, command, number, haircolor, age, key, name);
+        list=dataCheking(people, command, number, haircolor, age, key, name, eyecolor);
             if(list.isEmpty()!=true){
                 key=false;
             }
