@@ -22,12 +22,17 @@ public interface DataChecking {
               eyecolor = list.get(4).toString();
           }
           catch(Exception ex){
-              number = Integer.parseInt((String) list.get(0));
+              try{
+                  number = Integer.parseInt((String) list.get(0));
               name = list.get(1).toString()+" "+list.get(2).toString();
               age =  Integer.parseInt((String) list.get(3));
               haircolor = list.get(4).toString();
               eyecolor = list.get(5).toString();
-
+              }
+              catch (Exception exception){
+                  System.out.println("Вы ввели бред, повторите ввод комманды");
+                  Command command1 = new Command();
+                  command1.menu(people);}
           }
 
 
@@ -54,14 +59,14 @@ public interface DataChecking {
                       list.clear();
                       System.out.println("Некорректный возраст");break;
                       //продолжить..
-                  }else if(!eyecolor.equals("") &&
-                          !eyecolor.equals("") &&
-                          !eyecolor.equals("") &&
-                          !eyecolor.equals("Platinum-blonde") &&
-                          !eyecolor.equals("Strawberry-blonde") &&
-                          !eyecolor.equals("Red")
+                  }else if(!eyecolor.equals("Brown") &&
+                          !eyecolor.equals("Blue") &&
+                          !eyecolor.equals("Violet") &&
+                          !eyecolor.equals("Hazel")
                   ){
-                      System.out.println("Некорректный цвет глаз");
+                      list.clear();
+                      System.out.println("Цвет может быть: Brown " + "Blue " + "Violet " +
+                              "Hazel ");break;
                   }
               }
           }

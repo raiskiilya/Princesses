@@ -15,9 +15,11 @@ public interface Menu  {
             case "list":
                 crud.read(people); break;
             case "update":
-                System.out.println("update");break;
+                crud.update(people);break;
+            case "get":
+                crud.get(people);break;
             case "delete":
-                System.out.println("delete");break;
+                crud.delete(people);break;
             case "exit":
                 System.out.println("Программа завершена");break;
         }

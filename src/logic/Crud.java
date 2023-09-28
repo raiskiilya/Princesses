@@ -8,6 +8,13 @@ import java.util.stream.Collectors;
 import static java.util.Collections.list;
 
 public class Crud implements DataChecking{
+    int number=0;
+    String name="";
+    int age=0;
+    String haircolor="";
+    String eyecolor="";
+    boolean key = true;
+
 
     public void read(LinkedHashSet<Princess> people) {
         for(Princess peoples : people){
@@ -21,12 +28,7 @@ public class Crud implements DataChecking{
 
         Scanner scan = new Scanner(System.in);
         ArrayList list = new ArrayList();
-        int number=0;
-        String name="";
-        int age=0;
-        String haircolor="";
-        String eyecolor="";
-        boolean key = true;
+
 
         while (key){
         System.out.println("Для добавления принцессы введите комманду, например '5 Belle 17 Brown Hazel':");
@@ -53,6 +55,49 @@ public class Crud implements DataChecking{
             eyecolor = list.get(5).toString();
             people.add(new Princess(number, name, age, haircolor, eyecolor));
             System.out.println("Принцесса " + "'" + name + "'" + " была добавлена");
+        }
+    list.clear();
+    }
+    public void get(LinkedHashSet<Princess> people) {
+        Scanner scan = new Scanner(System.in);
+        ArrayList list = new ArrayList();
+        System.out.println("Для отображения принцессы введите её id");
+        try{int command = scan.nextInt();
+            for(Princess peoples: people){
+                if(command == peoples.getNumber()){
+                    System.out.println(peoples.getName()+
+                            "\n Age: "+peoples.getAge()+
+                            "\n Hair: "+ peoples.getHaircolor()+
+                            "\n Eyes: "+ peoples.getEyecolor());break;
+                }else {
+                    System.out.println("Такой принцессы не существует");
+                    break;
+                }
+            }
+        }catch (Exception ex){
+            System.out.println("Вы ввели какую-то дичь, не будьте Васей и повторите попытку");
+            get(people);
+        }
+
+    }
+    public void update(LinkedHashSet<Princess> people) {
+
+    }
+    public void delete(LinkedHashSet<Princess> people) {
+        Scanner scan = new Scanner(System.in);
+        ArrayList list = new ArrayList();
+        System.out.println(people);
+        System.out.println("Для удаления принцессы введите её id");
+        try{int command = scan.nextInt();
+            for(Princess peoples: people){
+                if(command == peoples.getNumber()){
+                    System.out.println("Принцесса "+"' "+peoples.getName()+" '"+" была удалена");
+                    people.remove(peoples);break;
+                }
+            }
+        }catch (Exception ex){
+            System.out.println("Вы ввели какую-то дичь, не будьте Васей и повторите попытку");
+            delete(people);
         }
 
     }
